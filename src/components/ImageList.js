@@ -3,7 +3,7 @@ import { useDrag, useDrop } from "react-dnd";
 
 const type = "Image";
 
-const Image = ({ image, index }) => {
+const Image = ({ image, index, moveImage }) => {
     const ref = useRef(null);
 
     const [, drop] = useDrop({
