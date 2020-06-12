@@ -21,5 +21,13 @@ code {
   height: 75vh;
   
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.Grid {
+  width: 100%;
+  height: auto;
+  
+  display: flex;
+  flex-direction: row;
 }

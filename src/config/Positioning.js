@@ -1,33 +1,26 @@
-// let rewardPosition = [0,1]
-for (let i = 1; i < 6; i++) {
-  var rewardPosition = [0, i]
+function emitChange(o, position, observers) {
+  observers.forEach((o) => o && o(position))
 }
 
-let observers = []
-
-function emitChange() {
-  observers.forEach((o) => o && o(rewardPosition))
-}
-
-export function observe(o) {
+export function observe(o, observers, position) {
   observers.push(o)
-  emitChange()
+  emitChange(o, position, observers)
   return () => {
     observers = observers.filter((t) => t !== o)
   }
 }
 
 // these check whether you can move and then move you
-export function canMoveReward(toX, toY) {
-  const [x, y] = rewardPosition
-  const dy = toX - x
-  const dx = toY - y
+export function canMoveReward(toX, toY, position, id) {
+  const [x, y] = position
+  const dx = toX - x
+  const dy = toY - y
   return (
-    (dx === 0 && dy != 0) 
+    ( dx !== 0 && dy === id) 
   )
 }
 
-export function moveReward(toX, toY) {
-  rewardPosition = [toX, toY]
-  emitChange()
+export function moveReward(o, toX, toY, observers) {
+  let position = [toX, toY]
+  emitChange(o, position, observers)
 }
