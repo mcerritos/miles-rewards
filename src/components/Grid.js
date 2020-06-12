@@ -1,6 +1,6 @@
 import React from 'react'
-import { BoardSquare } from './BoardSquare'
-import { R1 } from './components/R1'
+import { GridSquare } from './GridSquare'
+import  Reward  from './Reward'
 
 const boardStyle = {
   width: '100%',
@@ -10,31 +10,35 @@ const boardStyle = {
 }
 
 /** Styling properties applied to each square element */
-const squareStyle = { width: '12.5%', height: '12.5%' }
+const squareStyle = { width: '16.6%', height: '16.6%' }
 /**
  * The chessboard component
  * @param props The react props
  */
 
-export const Grid = ({ knightPosition: [knightX, knightY] }) => {
+export const Grid = ({ rewardPosition: [rewardX, rewardY] }) => {
+
   function renderSquare(i) {
-    const x = i % 8
-    const y = Math.floor(i / 8)
+    const x = i % 6
+    const y = Math.floor(i / 6)
     return (
       <div key={i} style={squareStyle}>
-        <BoardSquare x={x} y={y}>
+        <GridSquare x={x} y={y}>
           {renderPiece(x, y)}
-        </BoardSquare>
+        </GridSquare>
       </div>
     )
   }
+
   function renderPiece(x, y) {
-    const isKnightHere = x === knightX && y === knightY
-    return isKnightHere ? <Knight /> : null
+    const isRewardHere = x === rewardX && y === rewardY
+    return isRewardHere ? <Reward /> : null
   }
+
   const squares = []
-  for (let i = 0; i < 64; i += 1) {
+  for (let i = 0; i < 36; i += 1) {
     squares.push(renderSquare(i))
   }
-  return <div style={boardStyle}>{squares}</div>
+
+  return <div className="Grid" style={boardStyle}>{squares}</div>
 }

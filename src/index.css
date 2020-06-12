@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Square {
+  border: solid thin lavender;
+}
+
+.Start {
+  width: 75vw;
+  height: 75vh;
+  
+  display: flex;
+  justify-content: center;
+}

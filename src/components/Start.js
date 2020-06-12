@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import { Grid } from './components/Grid'
-import { observe } from './Game'
-const containerStyle = {
-  width: 500,
-  height: 500,
-  border: '1px solid gray',
-}
+import {Grid } from './Grid.js'
+import { observe } from '../config/Positioning'
 
-export const Start = () => {
-  const [knightPos, setKnightPos] = useState([1, 7])
+
+
+export default function Start () {
+  const [rewardPos, setRewardPos] = useState([1, 1])
   // the observe function will return an unsubscribe callback
-  useEffect(() => observe((newPos) => setKnightPos(newPos)))
+  useEffect(() => observe((newPos) => setRewardPos(newPos)))
   return (
     <div>
-      <div style={containerStyle}>
-        <Grid knightPosition={knightPos} />
+      <div className="Start">
+        <Grid rewardPosition={rewardPos} />
       </div>
     </div>
   )
