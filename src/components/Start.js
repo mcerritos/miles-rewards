@@ -18,7 +18,7 @@ export const Start = () => {
   const [observers5, setObservers5] = useState([])
 
   // whenever it renders observe it and then set it to the new position 
-  useEffect( () => observe((newPos) => setRewards1(newPos), observers1, rewards1) )
+  useEffect(() => observe((newPos) => setRewards1(newPos), observers1, rewards1))
   useEffect(() => observe((newPos) => setRewards2(newPos), observers2, rewards2))
   useEffect(() => observe((newPos) => setRewards3(newPos), observers3, rewards3))
   useEffect(() => observe((newPos) => setRewards4(newPos), observers4, rewards4))
@@ -29,10 +29,10 @@ export const Start = () => {
       <div className="Start">
         <Header/>
         <Grid id={1} observers={observers1} rewards={rewards1} setRewards={setRewards1} />
-        <Grid id={2} observers={observers2} rewards={rewards2} setRewards={setRewards2}/>
-        <Grid id={3} observers={observers3} rewards={rewards3} setRewards={setRewards3}/>
-        <Grid id={4} observers={observers4} rewards={rewards4} setRewards={setRewards4}/>
-        <Grid id={5} observers={observers5} rewards={rewards5} setRewards={setRewards5}/>
+        <Grid id={2} observers={observers2} rewards={rewards2} setRewards={setRewards2} />
+        <Grid id={3} observers={observers3} rewards={rewards3} setRewards={setRewards3} />
+        <Grid id={4} observers={observers4} rewards={rewards4} setRewards={setRewards4} />
+        <Grid id={5} observers={observers5} rewards={rewards5} setRewards={setRewards5} />
       </div>
     </div>
   )

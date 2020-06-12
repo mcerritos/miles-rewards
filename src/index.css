@@ -14,12 +14,15 @@ code {
 
 .Square {
   border: solid medium lavender;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .Start {
   width: 75vw;
   height: 75vh;
-  
+
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
@@ -31,4 +34,9 @@ code {
   
   display: flex;
   flex-direction: row;
+}
+
+#preview {
+  max-width: 10vw;
+  max-height: auto;
 }

@@ -6,9 +6,10 @@ import { Reward } from './Reward'
 /** Styling properties applied to each square element */
 const squareStyle = { width: '16.6%' }
 
-export const Grid = ({ observers, rewards, setRewards, id }) => {
+export const Grid = ({ observers, rewards, setRewards, id, resetPosition }) => {
+
   function renderSquare(i) {
-    const x = i % 6
+    const x = i
     const y = id
     return (
       <div key={i} style={squareStyle}>
@@ -20,8 +21,10 @@ export const Grid = ({ observers, rewards, setRewards, id }) => {
   }
 
   function renderPiece(x, y) {
+    
     const isRewardHere = x === rewards[0] && y === rewards[1]
-    return isRewardHere ? <Reward /> : null
+    return isRewardHere ? 
+    <Reward observers={observers} setRewards={setRewards} resetPosition={resetPosition} id={id}/> : null
   }
 
   const squares = []

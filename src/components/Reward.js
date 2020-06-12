@@ -1,7 +1,8 @@
 import React from 'react'
 import { useDrag, DragPreviewImage } from 'react-dnd'
 import { RewardTypes } from '../config/RewardTypes'
-import trophy from '../images/reward.jpg'
+import {observe, reset} from '../config/Positioning'
+import trophy from '../images/reward.png'
 
 const rewardStyle = {
   fontSize: 40,
@@ -9,7 +10,8 @@ const rewardStyle = {
   cursor: 'move',
 }
 
-export const Reward = () => {
+export const Reward = ({id, observers, setRewards, resetPosition}) => {
+  console.log(observers)
   
   const [{ isDragging }, drag, preview] = useDrag({
     item: { type: RewardTypes.REWARD },
@@ -18,18 +20,16 @@ export const Reward = () => {
     }),
   })
 
+  
+
   return (
     <>
-    <DragPreviewImage connect={preview} src={trophy} />
-      <div
-        ref={drag}
-        style={{
-          ...rewardStyle,
-          opacity: isDragging ? 0.5 : 1,
-        }}
-      >
-        Reward
+      <DragPreviewImage id="preview" connect={preview} src={trophy} />
+      <button onClick={ reset.bind(reset, (newPos) => setRewards(newPos), id, observers) } id={id}>x</button>
+      <div ref={drag} style={{...rewardStyle, opacity: isDragging ? 0.5 : 1,}}> 
+      R{id}
       </div>
     </>
   )
 }
+
