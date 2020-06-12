@@ -10,14 +10,21 @@ export function observe(o, observers, position) {
   }
 }
 
-// these check whether you can move and then move you
-export function canMoveReward(toX, toY, position, id) {
-  const [x, y] = position
+export function canMoveReward(toX, toY, id, position) {
+  let [x,y] = position
   const dx = toX - x
   const dy = toY - y
-  return (
-    ( dx !== 0 && dy === id) 
-  )
+  id = Number(id)
+
+  if (id === 4) {
+    return ( (dx === 4 || dx === 0) && dy === 0)
+  }
+
+  else {
+    return (
+      ( dx <= id && dx !== 0 && dy === 0) 
+    )
+  }
 }
 
 export function moveReward(o, toX, toY, observers) {

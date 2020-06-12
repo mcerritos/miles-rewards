@@ -12,7 +12,7 @@ export const Grid = ({ observers, rewards, setRewards, id }) => {
     const y = id
     return (
       <div key={i} style={squareStyle}>
-        <GridSquare id={id} observers={observers} rewards={rewards} setRewards={setRewards} x={x} y={y}>
+        <GridSquare id={id} observers={observers} position={rewards} setRewards={setRewards} x={x} y={y}>
           {renderPiece(x, y)}
         </GridSquare>
       </div>
@@ -20,28 +20,8 @@ export const Grid = ({ observers, rewards, setRewards, id }) => {
   }
 
   function renderPiece(x, y) {
-    try {
-      for (let i = 0; i < rewards.length; i++) {
-        if (rewards[i] === x && rewards[i] === y ) {
-          return <Reward />
-        }
-        else {
-          return null
-        }
-        
-      }
-    }
-    catch {
-      for (let i = 0; i < rewards.length; i++) {
-        if (rewards[0] === x && rewards[1] === y ) {
-          return <Reward />
-        }
-        else {
-          return null
-        }
-      }
-    }
-    
+    const isRewardHere = x === rewards[0] && y === rewards[1]
+    return isRewardHere ? <Reward /> : null
   }
 
   const squares = []
