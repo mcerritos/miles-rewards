@@ -13,7 +13,7 @@ code {
 }
 
 .Square {
-  border: solid thin lavender;
+  border: solid medium lavender;
 }
 
 .Start {
@@ -22,6 +22,7 @@ code {
   
   display: flex;
   flex-wrap: wrap;
+  margin: 0 auto;
 }
 
 .Grid {

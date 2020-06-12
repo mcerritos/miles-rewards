@@ -12,12 +12,13 @@ export function observe(o, observers, position) {
 
 export function canMoveReward(toX, toY, id, position) {
   let [x,y] = position
-  const dx = toX - x
+  let dx = toX - x
   const dy = toY - y
   id = Number(id)
 
   if (id === 4) {
-    return ( (dx === 4 || dx === 0) && dy === 0)
+    dx = Math.abs(dx)
+    return ( ( dx !== 0 && (dx === 4)) && dy === 0)
   }
 
   else {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {Grid } from './Grid.js'
+import Header from './Header.js'
 import { observe } from '../config/Positioning'
 
 export const Start = () => {
@@ -26,6 +27,7 @@ export const Start = () => {
   return (
     <div>
       <div className="Start">
+        <Header/>
         <Grid id={1} observers={observers1} rewards={rewards1} setRewards={setRewards1} />
         <Grid id={2} observers={observers2} rewards={rewards2} setRewards={setRewards2}/>
         <Grid id={3} observers={observers3} rewards={rewards3} setRewards={setRewards3}/>
