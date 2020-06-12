@@ -1,3 +1,3 @@
-export const ItemTypes = {
+export const RewardTypes = {
     REWARD: 'reward',
   }

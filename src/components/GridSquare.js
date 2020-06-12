@@ -2,13 +2,13 @@ import React from 'react'
 import { useDrop } from 'react-dnd'
 import { Square } from './Square'
 import { canMoveReward, moveReward } from '../config/Positioning'
-import { ItemTypes } from '../config/RewardTypes'
+import { RewardTypes } from '../config/RewardTypes'
 import { Overlay } from './Overlay'
 
 export const GridSquare = ({ x, y, children }) => {
 
   const [{ isOver, canDrop }, drop] = useDrop({
-    accept: ItemTypes.REWARD,
+    accept: RewardTypes.REWARD,
     canDrop: () => canMoveReward(x, y),
     drop: () => moveReward(x, y),
     collect: (monitor) => ({
