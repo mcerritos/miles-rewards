@@ -1,22 +1,11 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Prata', serif;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-.Square {
-  border: solid medium lavender;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .Start {
@@ -26,7 +15,27 @@ code {
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
+  background-color: rosybrown;
 }
+
+ #gridTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.topHeader {
+  display: block;
+  margin-left: 5vh;
+  width: 30vh;
+}
+
+.subheader {
+  display: block;
+  padding: 2vw;
+  border-bottom: solid medium lavender;
+} 
 
 .Grid {
   width: 100%;
@@ -36,7 +45,22 @@ code {
   flex-direction: row;
 }
 
+.Square {
+  border-left: solid medium lavender;
+  border-right: solid medium lavender;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 #preview {
   max-width: 10vw;
   max-height: auto;
+}
+
+#topheader > div {
+  display: block;
+  width: 35vw;
+  margin-left: 3vw;
 }

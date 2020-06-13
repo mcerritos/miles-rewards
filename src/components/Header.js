@@ -1,9 +1,8 @@
 import React from 'react'
 
-export default function Header() {
+export default function Header(props) {
+
     return (
-        <div id="header">
-            <h2>Categories</h2>
-        </div>
+        <div className={props.type}> {props.title} </div>
     )
 }

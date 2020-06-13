@@ -5,11 +5,12 @@ import { canMoveReward, moveReward } from '../config/Positioning'
 import { RewardTypes } from '../config/RewardTypes'
 import { Overlay } from './Overlay'
 
-export const GridSquare = ({ x, y, children, id, observers, position, setRewards }) => {
+export const GridSquare = ({ x, y, children, id, observers, position, setRewards, previousValue, setPreviousValue }) => {
+
   const [{ isOver, canDrop }, drop] = useDrop({
     accept: RewardTypes.REWARD,
     canDrop: () => canMoveReward(x, y, id, position),
-    drop: () => moveReward((newPos) => setRewards(newPos), x, y, observers),
+    drop: () => moveReward((newPos) => setRewards(newPos), x, y, observers, previousValue, setPreviousValue),
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
       canDrop: !!monitor.canDrop(),
@@ -27,7 +28,6 @@ export const GridSquare = ({ x, y, children, id, observers, position, setRewards
     >
       <Square>{children}</Square>
       {isOver && !canDrop && <Overlay color="red" />}
-      {!isOver && canDrop && <Overlay color="yellow" />}
       {isOver && canDrop && <Overlay color="green" />}
     </div>
   )

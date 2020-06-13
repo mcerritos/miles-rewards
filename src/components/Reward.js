@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useDrag, DragPreviewImage } from 'react-dnd'
 import { RewardTypes } from '../config/RewardTypes'
 import {observe, reset} from '../config/Positioning'
@@ -10,15 +10,20 @@ const rewardStyle = {
   cursor: 'move',
 }
 
-export const Reward = ({id, observers, setRewards, resetPosition}) => {
+export const Reward = ({id, observers, setRewards, setPreviousValue, previousValue, coordinates }) => {
+
+  // useEffect(() => {
+  //   setPreviousValue(previousValue.concat(coordinates))
+  //   return () => {
+  //   }
+  // },[observers])
+
   const [{ isDragging }, drag, preview] = useDrag({
     item: { type: RewardTypes.REWARD },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
   })
-
-  
 
   return (
     <>

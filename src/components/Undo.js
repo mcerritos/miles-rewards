@@ -4,7 +4,7 @@ export default function Undo() {
 
     return (
         <div>
-            <button>Undo</button>
+            <button> Undo </button>
         </div>
     )
 }
