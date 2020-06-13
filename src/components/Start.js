@@ -4,6 +4,7 @@ import Header from './Header.js'
 import { observe } from '../config/Positioning'
 
 export const Start = () => {
+  const [previousValue, setPreviousValue] = useState([])
 
   const [rewards1, setRewards1] = useState([0,1])
   const [rewards2, setRewards2] = useState([0,2])
@@ -18,11 +19,13 @@ export const Start = () => {
   const [observers5, setObservers5] = useState([])
 
   // whenever it renders observe it and then set it to the new position 
-  useEffect(() => observe((newPos) => setRewards1(newPos), observers1, rewards1))
+  useEffect(() => observe((newPos) => setRewards1(newPos), observers1, rewards1, previousValue))
   useEffect(() => observe((newPos) => setRewards2(newPos), observers2, rewards2))
   useEffect(() => observe((newPos) => setRewards3(newPos), observers3, rewards3))
   useEffect(() => observe((newPos) => setRewards4(newPos), observers4, rewards4))
   useEffect(() => observe((newPos) => setRewards5(newPos), observers5, rewards5))
+
+  
 
   return (
     <div>

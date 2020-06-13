@@ -11,8 +11,6 @@ const rewardStyle = {
 }
 
 export const Reward = ({id, observers, setRewards, resetPosition}) => {
-  console.log(observers)
-  
   const [{ isDragging }, drag, preview] = useDrag({
     item: { type: RewardTypes.REWARD },
     collect: (monitor) => ({

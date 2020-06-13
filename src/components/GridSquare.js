@@ -6,7 +6,6 @@ import { RewardTypes } from '../config/RewardTypes'
 import { Overlay } from './Overlay'
 
 export const GridSquare = ({ x, y, children, id, observers, position, setRewards }) => {
-  console.log(observers)
   const [{ isOver, canDrop }, drop] = useDrop({
     accept: RewardTypes.REWARD,
     canDrop: () => canMoveReward(x, y, id, position),
