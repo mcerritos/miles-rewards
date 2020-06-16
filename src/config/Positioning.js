@@ -1,10 +1,11 @@
-function emitChange(o, position, observers, previousValue) {
+export function emitChange(o, position, observers, previousValue, setPreviousValue) {
   observers.forEach((o) => o && o(position))
+  // setPreviousValue(previousValue.concat(position))
 }
 
-export function observe(o, observers, position, previousValue) {
+export function observe(o, observers, position, previousValue, setPreviousValue) {
   observers.push(o)
-  emitChange(o, position, observers, undo)
+  emitChange(o, position, observers, previousValue, setPreviousValue)
   return () => {
     observers = observers.filter((t) => t !== o)
   }
@@ -28,16 +29,12 @@ export function canMoveReward(toX, toY, id, position) {
   }
 }
 
-export function moveReward(o, toX, toY, observers, previousValue) {
+export function moveReward(o, toX, toY, observers, previousValue, setPreviousValue) {
   let position = [toX, toY]
-  emitChange(o, position, observers)
+  emitChange(o, position, observers, previousValue, setPreviousValue)
 }
 
-export function reset (o, id, observers, previousValue) {
+export function reset (o, id, observers, previousValue, setPreviousValue) {
   let position = [0, id]
-  emitChange( o, position, observers)
-}
-
-export function undo (o, previousValue, observers) {
-  emitChange(o, previousValue, observers)
+  emitChange( o, position, observers, previousValue, setPreviousValue)
 }
