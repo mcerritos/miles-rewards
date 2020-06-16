@@ -27,8 +27,8 @@ export const GridSquare = ({ x, y, children, id, observers, position, setRewards
       }}
     >
       <Square>{children}</Square>
-      {isOver && !canDrop && <Overlay color="red" />}
-      {isOver && canDrop && <Overlay color="green" />}
+      {isOver && !canDrop && <Overlay color="maroon" />}
+      {isOver && canDrop && <Overlay color="darkseagreen" />}
     </div>
   )
 }

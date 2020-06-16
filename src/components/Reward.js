@@ -28,10 +28,10 @@ export const Reward = ({id, observers, setRewards, setPreviousValue, previousVal
   return (
     <>
       <DragPreviewImage id="preview" connect={preview} src={trophy} />
-      <button onClick={ reset.bind(reset, (newPos) => setRewards(newPos), id, observers) } id={id}>x</button>
       <div ref={drag} style={{...rewardStyle, opacity: isDragging ? 0.5 : 1,}}> 
       R{id}
       </div>
+      <button className="reset" onClick={ reset.bind(reset, (newPos) => setRewards(newPos), id, observers) } id={id}>x</button>
     </>
   )
 }

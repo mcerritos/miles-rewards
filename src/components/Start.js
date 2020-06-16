@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {Grid } from './Grid.js'
 import { observe, emitChange } from '../config/Positioning'
 import TopGrid from './TopGrid.js'
+import Header from './Header'
 
 export const Start = () => {
   const [previousValue, setPreviousValue] = useState([])
