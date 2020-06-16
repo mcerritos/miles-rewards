@@ -5,7 +5,7 @@ import {observe, reset} from '../config/Positioning'
 import trophy from '../images/reward.png'
 
 const rewardStyle = {
-  fontSize: 40,
+  fontSize: 'x-large',
   fontWeight: 'bold',
   cursor: 'move',
 }
