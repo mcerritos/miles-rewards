@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {Grid } from './Grid.js'
 import { observe, emitChange } from '../config/Positioning'
 import TopGrid from './TopGrid.js'
-import Header from './Header'
+import Selections from './Selections'
 
 export const Start = () => {
   const [previousValue, setPreviousValue] = useState([])
@@ -31,7 +31,7 @@ export const Start = () => {
   useEffect(() => observe((newPos) => setRewards5(newPos), observers5, rewards5, previousValue, setPreviousValue))
 
   return (
-    <div>
+    <div id="Layout">
       <div className="Start">
         <TopGrid/>
         <Grid id={1} observers={observers1} rewards={rewards1} setRewards={setRewards1} undo={undo} previousValue={previousValue} setPreviousValue={setPreviousValue}/>
@@ -40,6 +40,7 @@ export const Start = () => {
         <Grid id={4} observers={observers4} rewards={rewards4} setRewards={setRewards4} undo={undo} previousValue={previousValue} setPreviousValue={setPreviousValue}/>
         <Grid id={5} observers={observers5} rewards={rewards5} setRewards={setRewards5} undo={undo} previousValue={previousValue} setPreviousValue={setPreviousValue}/>
       </div>
+      <Selections/>
     </div>
   )
 }
