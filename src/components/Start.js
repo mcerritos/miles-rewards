@@ -40,7 +40,7 @@ export const Start = () => {
         <Grid id={4} observers={observers4} rewards={rewards4} setRewards={setRewards4} undo={undo} previousValue={previousValue} setPreviousValue={setPreviousValue}/>
         <Grid id={5} observers={observers5} rewards={rewards5} setRewards={setRewards5} undo={undo} previousValue={previousValue} setPreviousValue={setPreviousValue}/>
       </div>
-      <Selections/>
+      <Selections row1={rewards1} row2={rewards2} row3={rewards3} row4={rewards4} row5={rewards5}/>
     </div>
   )
 }
